@@ -52,6 +52,28 @@
             transform: scale(1.1);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
+        .lang-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.lang-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
 
         .dark-theme {
             background: linear-gradient(135deg, #0f0c29 0%, #24243e 50%, #313264 100%) !important;
@@ -149,6 +171,7 @@
 .dark-theme .social-icon:hover {
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
+
 
 /* Responsivo para móviles */
 @media (max-width: 768px) {
@@ -337,6 +360,11 @@
         <span id="theme-icon">☀️</span>
     </button>
 
+    <!-- Botón de cambio de idioma -->
+<button class="lang-toggle" onclick="toggleLanguage()">
+    <span id="lang-icon">EN</span>
+</button>
+
     <!-- Contenedor principal -->
     <div class="container">
         <!-- Encabezado -->
@@ -439,6 +467,48 @@
                 isDarkTheme = true;
             }
         }
+        let isEnglish = false;
+
+function toggleLanguage() {
+    const langIcon = document.getElementById('lang-icon');
+    // Encabezado
+    document.querySelector('.header h1').textContent = isEnglish ? '¡Hola! Soy Asistente Virtual' : 'Hello! I am a Virtual Assistant';
+    document.querySelector('.header p').textContent = isEnglish ? 'Experto En Tareas Diarias👨‍💻' : 'Expert in Daily Tasks👨‍💻';
+    // Sobre mí
+    document.querySelectorAll('.card h2')[0].textContent = isEnglish ? 'Sobre Mí' : 'About Me';
+    document.querySelectorAll('.card p')[0].textContent = isEnglish
+        ? 'Hola Me llamo WILLIANS FANEITE | Asistente Virtual Profesional👨‍💻: Libero tu tiempo🕑, optimizo tu productividad y gestiono tareas 📑 clave para el éxito de tu negocio.Soy la opción ideal.'
+        : 'Hi, my name is WILLIANS FANEITE | Professional Virtual Assistant👨‍💻: I free up your time🕑, optimize your productivity, and manage key tasks 📑 for your business success. I am the ideal choice.';
+    document.querySelectorAll('.card a')[0].textContent = isEnglish ? '¡Conoce más!' : 'Learn more!';
+    // Estudios
+    document.querySelectorAll('.card h2')[1].textContent = isEnglish ? 'Mis Estudios' : 'My Studies';
+    document.querySelectorAll('.card p')[1].textContent = isEnglish
+        ? 'Actualmente soy estudiante de Ing de Sistemas💻.\nTambién soy Asistente Virtual👨‍💻.\nY Estoy en constante aprendizaje📑.'
+        : 'I am currently a Systems Engineering student💻.\nI am also a Virtual Assistant👨‍💻.\nAnd I am constantly learning📑.';
+    // Documentos y fotos
+    document.querySelectorAll('.card h2')[2].textContent = isEnglish ? 'Mis Documentos y Fotos' : 'My Documents and Photos';
+    document.querySelectorAll('.card p')[2].textContent = isEnglish
+        ? 'Aquí puedes ver algunos de mis trabajos, proyectos y momentos importantes de mi trabajos.'
+        : 'Here you can see some of my work, projects, and important moments from my jobs.';
+    // Galería
+    document.querySelectorAll('.gallery-item p')[0].textContent = isEnglish ? 'Mi primer proyecto' : 'My first project';
+    document.querySelectorAll('.gallery-item p')[1].textContent = isEnglish ? 'referencias' : 'references';
+    document.querySelectorAll('.gallery-item p')[2].textContent = isEnglish ? 'referencias' : 'references';
+    // Documentos
+    document.querySelector('.documents h3').textContent = isEnglish ? 'Documentos disponibles:' : 'Available documents:';
+    const docLinks = document.querySelectorAll('.doc-list a');
+    docLinks[0].textContent = isEnglish ? '📄 CV - Currículum Vitae.pdf' : '📄 Resume.pdf';
+    docLinks[1].textContent = isEnglish ? '📊 Carta de presentación.doc' : '📊 Cover Letter.doc';
+    docLinks[2].textContent = isEnglish ? '🎓 Certificado de Curso.pdf' : '🎓 Course Certificate.pdf';
+    docLinks[3].textContent = isEnglish ? '💻 Portafolio de UPWORK' : '💻 UPWORK Portfolio';
+    // Footer
+    document.querySelector('.footer p').textContent = isEnglish
+        ? '© 2025 Mi Página Web. Creada con mucho entusiasmo.'
+        : '© 2025 My Website. Created with great enthusiasm.';
+    // Cambiar icono
+    langIcon.textContent = isEnglish ? 'EN' : 'ES';
+    isEnglish = !isEnglish;
+}
     </script>
 </body>
 </html>
