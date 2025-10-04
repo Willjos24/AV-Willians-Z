@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AV👨‍💻 WILLIANS F</title>
+    <!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<style>
+        /* Estilos CSS - Esto controla cómo se ve la página *
+        
+        /* Eliminar márgenes por defecto y usar una fuente moderna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #3654dc 0%, #160229 100%);
+            min-height: 100vh;
+        }
+        
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+         .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        .lang-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.lang-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+        .dark-theme {
+            background: linear-gradient(135deg, #0f0c29 0%, #24243e 50%, #313264 100%) !important;
+        }
+
+         .dark-theme .card {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+
+        .dark-theme .card h2 {
+            color: #9ca3f5 !important;
+        }
+
+        .dark-theme .card p {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* Encabezado */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+    
+        .header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+        }
+
+        /* Redes sociales */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+}
+
+.linkedin {
+    background: linear-gradient(45deg, #0077B5, #004182);
+}
+
+.instagram {
+    background: linear-gradient(45deg, #E4405F, #833AB4, #F77737);
+}
+
+.upwork {
+    background: linear-gradient(45deg, #14A800, #0F7A00);
+}
+
+.social-icon span {
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Tema oscuro para redes sociales */
+.dark-theme .social-icon {
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .social-icon:hover {
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 0.8rem;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+}
+        
+        /* Sección principal */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+      
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        /* Botón */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+         .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .gallery-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+
+         .documents {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .documents h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .doc-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .doc-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .doc-list a {
+            display: inline-block;
+            padding: 0.8rem 1.2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .doc-list a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos para tema oscuro */
+        .dark-theme .gallery-item {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .dark-theme .gallery-item p {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .dark-theme .documents h3 {
+            color: #9ca3f5 !important;
+        }
+
+        /* Pie de página */
+        .footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Responsivo - Se adapta a móviles */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .gallery-item img {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">☀️</span>
+    </button>
+
+    <!-- Botón de cambio de idioma -->
+<button class="lang-toggle" onclick="toggleLanguage()">
+    <span id="lang-icon">EN</span>
+</button>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="header">
+            <h1>¡Hola! Soy Asistente Virtual</h1>
+            <p>Experto En Tareas Diarias👨‍💻</p>
+        </header>
+
+        <!-- contenido principal -->
+        <main class="main-content">
+            <div class="card">
+                <h2>Sobre Mí</h2>
+                <p>Hola Me llamo WILLIANS FANEITE | Asistente Virtual Profesional👨‍💻: Libero tu tiempo🕑, optimizo tu productividad y gestiono tareas 📑 clave para el éxito de tu negocio.Soy la opción ideal.
+</p>
+                <a href="https://www.upwork.com/freelancers/~01cb9c7dbbbae098e7" class="btn" target="_blank">¡Conoce más!</a>
+            </div>
+            
+            <div class="card">
+                <h2>Mis Estudios</h2>
+                <p>Actualmente soy estudiante de Ing de Sistemas💻.
+                    También soy Asistente Virtual👨‍💻.
+                    Y Estoy en constante aprendizaje📑.
+                </p>
+            </div>
+             <div class="card">
+                <h2>Mis Documentos y Fotos</h2>
+                <p>Aquí puedes ver algunos de mis trabajos, proyectos y momentos importantes de mi trabajos.</p>
+
+                 <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/sDxGRR0p/Screenshot-2025-09-25-145741.jpg" alt="Proyectos">
+                        <p>EMAILS</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/d0wqw2VM/Screenshot-2025-09-25-145741-1.jpg" alt="Proyectos">
+                        <P>EMAILS</P>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/SR24DVVB/Screenshot-2025-09-25-145741-2.jpg" alt="Proyectos">
+                       <P>EMAILS</P>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/gJRFhrJw/Screenshot-2025-09-25-152148.jpg" alt="Proyectos">
+                        <P>EMAILS</P>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://i.postimg.cc/TPNnZqr0/Screenshot-2025-09-25-152148-1.jpg" alt="Proyectos">
+                        <P>OUTLOOK</P>
+                    </div>
+                      <div class="gallery-item">
+                        <img src="https://i.postimg.cc/TPnXsC8q/Screenshot-2025-09-25-152148-2.jpg" alt="Proyectos">
+                        <P>CALENDAR</P>
+                    </div>
+                      <div class="gallery-item">
+                        <img src="https://i.postimg.cc/J7pCSsg1/Screenshot-2025-09-25-152313.jpg" alt="Proyectos">
+                        <P>CALENDAR</P>
+                    </div>
+
+                <!-- Lista de documentos -->
+                <div class="documents">
+                    <h3>Documentos disponibles:</h3>
+                    <ul class="doc-list">
+                        <li><a href="https://drive.google.com/file/d/1zRNTlJdvV1jVL6-Jb57q2w-UYV_i4SYq/view?usp=drive_link"download>📄 CV - Currículum Vitae.pdf</a></li>
+                        <li><a href="https://docs.google.com/document/d/1nvsTak85hSXnkfGybid8mkgqnG4F_qGC/edit?usp=drive_link&ouid=110061025701738127892&rtpof=true&sd=true" download>📊 Carta de presentación.doc</a></li>
+                        <li><a href="https://es.fiverr.com/s/m5r8K0b" download> 📲PERFIL FIVERR✅</a></li>
+                        <li><a href="https://www.upwork.com/freelancers/~01cb9c7dbbbae098e7" download>💻 Portafolio de UPWORK</a></li>
+                    </ul>
+                </div>
+            </div>
+
+         </main>
+
+          <!-- Redes sociales -->
+<div class="social-links">
+    <a href="https://wa.me/+584165280200" target="_blank" class="social-icon whatsapp">
+        <img src="https://files.catbox.moe/lsg260.png" alt="WhatsApp" width="30">
+    </a>
+    <a href="https://www.linkedin.com/in/willians-faneite-3b9739334" target="_blank" class="social-icon linkedin">
+        <img src="https://files.catbox.moe/uii695.png" alt="LinkedIn" width="30">
+    </a>
+    <a href="https://www.instagram.com/willjos24" target="_blank" class="social-icon instagram">
+        <img src="https://files.catbox.moe/8xflwb.png" alt="Instagram" width="30">
+    </a>
+    <a href="https://www.upwork.com/freelancers/~01cb9c7dbbbae098e7" target="_blank" class="social-icon upwork">
+        <img src="https://files.catbox.moe/fjniek.png" alt="Upwork" width="30">
+    </a>
+</div>
+
+
+        <!-- Pie de página -->
+        <footer class="footer">
+            <p>&copy; 2025 Mi Página Web. Creada con mucho entusiasmo.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // JavaScript - Esto hace que la página sea interactiva
+          
+        let isDarkTheme = false;
+
+      function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            
+            if (isDarkTheme) {
+                // Cambiar a tema claro
+                body.classList.remove('dark-theme');
+                body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                icon.textContent = '☀️';
+                isDarkTheme = false;
+            } else {
+                // Cambiar a tema oscuro
+                body.classList.add('dark-theme');
+                icon.textContent = '🌙';
+                isDarkTheme = true;
+            }
+        }
+        let isEnglish = false;
+
+function toggleLanguage() {
+    const langIcon = document.getElementById('lang-icon');
+    // Encabezado
+    document.querySelector('.header h1').textContent = isEnglish ? '¡Hola! Soy Asistente Virtual' : 'Hello! I am a Virtual Assistant';
+    document.querySelector('.header p').textContent = isEnglish ? 'Experto En Tareas Diarias👨‍💻' : 'Expert in Daily Tasks👨‍💻';
+    // Sobre mí
+    document.querySelectorAll('.card h2')[0].textContent = isEnglish ? 'Sobre Mí' : 'About Me';
+    document.querySelectorAll('.card p')[0].textContent = isEnglish
+        ? 'Hola Me llamo WILLIANS FANEITE | Asistente Virtual Profesional👨‍💻: Libero tu tiempo🕑, optimizo tu productividad y gestiono tareas 📑 clave para el éxito de tu negocio.Soy la opción ideal.'
+        : 'Hi, my name is WILLIANS FANEITE | Professional Virtual Assistant👨‍💻: I free up your time🕑, optimize your productivity, and manage key tasks 📑 for your business success. I am the ideal choice.';
+    document.querySelectorAll('.card a')[0].textContent = isEnglish ? '¡Conoce más!' : 'Learn more!';
+    // Estudios
+    document.querySelectorAll('.card h2')[1].textContent = isEnglish ? 'Mis Estudios' : 'My Studies';
+    document.querySelectorAll('.card p')[1].textContent = isEnglish
+        ? 'Actualmente soy estudiante de Ing de Sistemas💻.\nTambién soy Asistente Virtual👨‍💻.\nY Estoy en constante aprendizaje📑.'
+        : 'I am currently a Systems Engineering student💻.\nI am also a Virtual Assistant👨‍💻.\nAnd I am constantly learning📑.';
+    // Documentos y fotos
+    document.querySelectorAll('.card h2')[2].textContent = isEnglish ? 'Mis Documentos y Fotos' : 'My Documents and Photos';
+    document.querySelectorAll('.card p')[2].textContent = isEnglish
+        ? 'Aquí puedes ver algunos de mis trabajos, proyectos y momentos importantes de mi trabajos.'
+        : 'Here you can see some of my work, projects, and important moments from my jobs.';
+    // Galería
+    document.querySelectorAll('.gallery-item p')[0].textContent = isEnglish ? 'Mis proyecto' : 'My projects';
+    document.querySelectorAll('.gallery-item p')[1].textContent = isEnglish ? '' : 'projects';
+    document.querySelectorAll('.gallery-item p')[2].textContent = isEnglish ? '' : 'projects';
+    document.querySelectorAll('.gallery-item p')[3].textContent = isEnglish ? '' : 'projects';
+    document.querySelectorAll('.gallery-item p')[4].textContent = isEnglish ? '' : 'projects';
+    document.querySelectorAll('.gallery-item p')[5].textContent = isEnglish ? '' : 'projects';
+    document.querySelectorAll('.gallery-item p')[6].textContent = isEnglish ? '' : 'projects';
+    // Documentos
+    document.querySelector('.documents h3').textContent = isEnglish ? 'Documentos disponibles:' : 'Available documents:';
+    const docLinks = document.querySelectorAll('.doc-list a');
+    docLinks[0].textContent = isEnglish ? '📄 CV - Currículum Vitae.pdf' : '📄 Resume.pdf';
+    docLinks[1].textContent = isEnglish ? '📊 Carta de presentación.doc' : '📊 Cover Letter.doc';
+    docLinks[2].textContent = isEnglish ? '📲PERFIL DE FIVERR✅' : ' 📲FIVERR PROFILE✅';
+    docLinks[3].textContent = isEnglish ? '💻 Portafolio de UPWORK' : '💻 UPWORK Portfolio';
+    // Footer
+    document.querySelector('.footer p').textContent = isEnglish
+        ? '© 2025 Mi Página Web. Creada con mucho entusiasmo.'
+        : '© 2025 My Website. Created with great enthusiasm.';
+    // Cambiar icono
+    langIcon.textContent = isEnglish ? 'EN' : 'ES';
+    isEnglish = !isEnglish;
+}
+    </script>
+</body>
+</html>
